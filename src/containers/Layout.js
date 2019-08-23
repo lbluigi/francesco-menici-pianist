@@ -1,5 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import Header from './Header';
 
 export default () => {
   const GlobalStyle = createGlobalStyle`
@@ -21,7 +22,7 @@ export default () => {
   return (
     <>
       <GlobalStyle />
-      <h1>Francesco Menici</h1>
+      <Header />
     </>
   );
 };
