@@ -1,3 +1,5 @@
+const languages = require('./src/data/languages');
+
 const dotenv = require('dotenv');
 
 if (process.env.ENVIRONMENT !== 'production') {
@@ -7,6 +9,10 @@ if (process.env.ENVIRONMENT !== 'production') {
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env;
 
 module.exports = {
+  siteMetadata: {
+    title: `Franceco Menici - Pianist, Composer, Arranger`,
+    languages,
+  },
   plugins: [
     {
       resolve: 'gatsby-source-contentful',
@@ -27,7 +33,6 @@ module.exports = {
         icon: `src/images/logo.png`,
       },
     },
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
@@ -43,5 +48,6 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-styled-components`,
   ],
 };

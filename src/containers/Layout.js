@@ -1,52 +1,8 @@
-import React, { useReducer } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
 import { createGlobalStyle } from 'styled-components';
-import Header from './Header';
 
-export default () => {
-  const initialState = { lang: 'en-US' };
-
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 'en-US':
-      default:
-        return { lang: 'en-US' };
-
-      case 'it':
-        return { lang: 'it' };
-    }
-  };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      allContentfulHeader {
-        nodes {
-          node_locale
-          title
-          subtitle
-          heroImage {
-            description
-            file {
-              url
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const {
-    allContentfulHeader: { nodes },
-  } = data;
-
-  const localizedData = nodes.reduce((acc, curr) => {
-    const { node_locale, ...currWithoutLocale } = curr;
-    acc[curr.node_locale] = currWithoutLocale;
-    return acc;
-  }, {});
-
+export default ({ children }) => {
   const GlobalStyle = createGlobalStyle`
     html {
       box-sizing: border-box;
@@ -65,12 +21,15 @@ export default () => {
 
   return (
     <>
+      <Helmet>
+        <title>Francesco Menici - Pianist, Composer, Arranger</title>
+        <meta
+          name="description"
+          content="Francesco Menici è un pianista, tastierista, compositore e arrangiatore nato a Livorno nel 1984."
+        />
+      </Helmet>
       <GlobalStyle />
-      <Header
-        content={localizedData}
-        onSetLang={lang => dispatch({ type: lang })}
-        lang={state.lang}
-      />
+      {children}
     </>
   );
 };
