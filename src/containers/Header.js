@@ -1,30 +1,19 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
-export default () => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      allContentfulHeader {
-        nodes {
-          title
-          subtitle
-          heroImage {
-            description
-            file {
-              url
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  console.log(data);
-
+export default ({ content, onSetLang, lang }) => {
   return (
     <header>
-      <h1>Francesco Menici</h1>
-      <h2>Pianist - Composer - Arranger</h2>
+      <p>Lang: {lang}</p>
+      <ul>
+        <li>
+          <button onClick={() => onSetLang('en-US')}>EN</button>
+        </li>
+        <li>
+          <button onClick={() => onSetLang('it')}>IT</button>
+        </li>
+      </ul>
+      <h1>{content[lang].title}</h1>
+      <h2>{content[lang].subtitle}</h2>
     </header>
   );
 };
