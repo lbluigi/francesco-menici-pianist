@@ -1,7 +1,8 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { createGlobalStyle } from 'styled-components';
 
-export default () => {
+export default ({ children }) => {
   const GlobalStyle = createGlobalStyle`
     html {
       box-sizing: border-box;
@@ -20,8 +21,15 @@ export default () => {
 
   return (
     <>
+      <Helmet>
+        <title>Francesco Menici - Pianist, Composer, Arranger</title>
+        <meta
+          name="description"
+          content="Francesco Menici è un pianista, tastierista, compositore e arrangiatore nato a Livorno nel 1984."
+        />
+      </Helmet>
       <GlobalStyle />
-      <h1>Francesco Menici</h1>
+      {children}
     </>
   );
 };
