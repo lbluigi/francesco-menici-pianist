@@ -15,6 +15,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: false
+      }
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: CONTENTFUL_SPACE_ID,

@@ -18,7 +18,6 @@ export const data = graphql`
       siteMetadata {
         languages {
           defaultLangKey
-          langs
         }
       }
     }
