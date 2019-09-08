@@ -38,7 +38,6 @@ export const query = graphql`
       description
     }
     contentfulHeader(node_locale: { eq: "it" }) {
-      metaDescription
       title
       subtitle
       heroImage {

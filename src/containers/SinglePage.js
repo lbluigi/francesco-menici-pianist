@@ -1,6 +1,7 @@
 import React from 'react'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { createGlobalStyle } from 'styled-components';
+import { Box } from 'rebass';
 import Header from './Header';
 
 export default ({ data, location }) => {
@@ -38,9 +39,13 @@ export default ({ data, location }) => {
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url));
 
   return (
-    <>
+    <Box
+      sx={{
+        maxWidth: '90%',
+        mx: 'auto'
+      }}>
       <GlobalStyle />
       <Header data={contentfulHeader} langs={langsMenu} />
-    </>
+    </Box>
   )
 };
