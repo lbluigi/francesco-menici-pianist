@@ -1,16 +1,25 @@
 import React from 'react'
+import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from '../containers/Layout';
 import SinglePage from '../containers/SinglePage';
 
 export default ({ data, location }) => {
+  const { contentfulMetaContent: { title, description } } = data;
+
   return (
-    <Layout>
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta
+          name="description"
+          content={description}
+        />
+      </Helmet>
       <SinglePage
         data={data}
         location={location}
       />
-    </Layout>
+    </>
   )
 };
 
@@ -23,6 +32,10 @@ export const query = graphql`
           defaultLangKey
         }
       }
+    }
+    contentfulMetaContent(node_locale: { eq: "en-US" }) {
+      title
+      description
     }
     contentfulHeader(node_locale: { eq: "en-US" }) {
       title
