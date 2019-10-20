@@ -31,6 +31,11 @@ export default ({ data, location }) => {
       font-family: 'Chivo', sans-serif;
       font-weight: 300;
     }
+
+    h1,
+    h2 {
+      text-transform: uppercase;
+    }
   `;
 
   const url = location.pathname;

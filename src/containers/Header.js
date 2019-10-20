@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby'
-import styled from 'styled-components';
+import LangList from '../components/header/LangList'
+import Title from '../components/header/Title'
+import SubTitle from '../components/header/SubTitle'
 
 export default ({ data, langs }) => {
   const { title, subtitle } = data;
@@ -20,34 +22,13 @@ export default ({ data, langs }) => {
     </li>
   );
 
-  const StyledUl = styled.ul`
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    text-transform: uppercase;
-    padding: 20px 0;
-
-    li {
-      margin-left: 10px
-    }
-
-    a {
-      text-decoration: none;
-      color: #000;
-    }
-  `;
-
   return (
     <header>
-      <StyledUl
-        as="ul"
-        justifyContent="flex-end">
+      <LangList>
         {links}
-      </StyledUl>
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
+      </LangList>
+      <Title>{title}</Title>
+      <SubTitle>{subtitle}</SubTitle>
     </header>
   );
 };

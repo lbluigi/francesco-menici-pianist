@@ -33,7 +33,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulMetaContent(node_locale: {eq: "en-US"}) {
+    contentfulMetaContent(node_locale: { eq: "en-US" }) {
       title
       description
     }
