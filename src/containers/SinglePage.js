@@ -1,8 +1,10 @@
 import React from 'react'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'emotion-theming'
 import { Box } from 'rebass';
 import Header from './Header';
+import theme from '../data/theme'
 
 export default ({ data, location }) => {
   const {
@@ -28,8 +30,6 @@ export default ({ data, location }) => {
 
     body {
       margin: 0;
-      font-family: 'Chivo', sans-serif;
-      font-weight: 300;
     }
 
     h1,
@@ -44,13 +44,18 @@ export default ({ data, location }) => {
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url));
 
   return (
-    <Box
-      sx={{
-        maxWidth: '90%',
-        mx: 'auto'
-      }}>
-      <GlobalStyle />
-      <Header data={contentfulHeader} langs={langsMenu} />
-    </Box>
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          maxWidth: '90%',
+          mx: 'auto'
+        }}
+        fontFamily="body"
+        fontWeight="body"
+      >
+        <GlobalStyle />
+        <Header data={contentfulHeader} langs={langsMenu} />
+      </Box>
+    </ThemeProvider>
   )
 };
