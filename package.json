@@ -15,6 +15,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "dotenv": "^8.1.0",
+    "emotion-theming": "^10.0.19",
     "gatsby": "^2.13.67",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",

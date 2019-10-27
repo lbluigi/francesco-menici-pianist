@@ -7,7 +7,7 @@ import SubTitle from '../components/header/SubTitle'
 export default ({ data, langs }) => {
   const { title, subtitle } = data;
   const activeLinkStyle = {
-    'font-weight': '400'
+    fontWeight: 400
   };
 
   const links = langs.map(lang =>
