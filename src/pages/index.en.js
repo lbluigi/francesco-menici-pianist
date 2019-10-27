@@ -40,6 +40,7 @@ export const query = graphql`
     contentfulHeader(node_locale: { eq: "en-US" }) {
       title
       subtitle
+      navbar
       heroImage {
         description
         file {
