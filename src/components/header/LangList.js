@@ -9,6 +9,14 @@ export default ({ children }) => (
       listStyleType: 'none',
       padding: '20px 0',
       textTransform: 'uppercase',
+      justifyContent: 'center',
+      '@media screen and (min-width: 40em)': {
+        justifyContent: 'flex-end',
+      },
+      'a': {
+        textDecoration: 'none',
+        color: 'black'
+      }
     }}
   >
     {children}

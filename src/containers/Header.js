@@ -5,6 +5,7 @@ import LangList from '../components/header/LangList'
 import Title from '../components/header/Title'
 import SubTitle from '../components/header/SubTitle'
 import Navbar from '../components/header/Navbar'
+import NavbarDesktop from '../components/header/NavbarDesktop';
 
 export default ({ data, langs }) => {
   const { title, subtitle, navbar } = data;
@@ -13,7 +14,7 @@ export default ({ data, langs }) => {
   };
 
   const links = langs.map(lang =>
-    <Box 
+    <Box
       as="li"
       key={lang.langKey}
       selected={lang.selected}
@@ -39,6 +40,7 @@ export default ({ data, langs }) => {
       <Title>{title}</Title>
       <SubTitle>{subtitle}</SubTitle>
       <Navbar items={navbar} />
+      <NavbarDesktop items={navbar} />
     </header>
   );
 };
