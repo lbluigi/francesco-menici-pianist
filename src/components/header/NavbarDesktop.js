@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Link } from 'rebass';
+import { Box } from 'rebass';
 import NavbarItems from './NavbarItems';
 
 export default ({ items }) => {
@@ -18,23 +18,6 @@ export default ({ items }) => {
         '@media screen and (max-width: 39.999em)': {
           display: 'none',
         },
-        // 'li': {
-        //   '&:after': {
-        //     content: '""',
-        //     display: 'block',
-        //     width: 0,
-        //     height: '2px',
-        //     backgroundColor: 'primary',
-        //     marginLeft: '50%',
-        //     transition: 'all .15s ease-out',
-        //   },
-        //   '&:hover': {
-        //     '&:after': {
-        //       width: '100%',
-        //       marginLeft: 0,
-        //     }
-        //   }
-        // }
       }}
     >
       <NavbarItems items={items} desktop />

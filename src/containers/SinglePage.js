@@ -45,15 +45,11 @@ export default ({ data, location }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Box
-        sx={{
-          maxWidth: '90%',
-          mx: 'auto'
-        }}
         fontFamily="body"
         fontWeight="body"
       >
-        <GlobalStyle />
         <Header data={contentfulHeader} langs={langsMenu} />
       </Box>
     </ThemeProvider>

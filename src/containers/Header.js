@@ -6,12 +6,19 @@ import Title from '../components/header/Title'
 import SubTitle from '../components/header/SubTitle'
 import Navbar from '../components/header/Navbar'
 import NavbarDesktop from '../components/header/NavbarDesktop';
+import Hero from '../components/header/Hero';
 
 export default ({ data, langs }) => {
-  const { title, subtitle, navbar } = data;
-  const activeLinkStyle = {
-    fontWeight: 400
-  };
+  const {
+    title,
+    subtitle,
+    navbar,
+    heroImage: {
+      description,
+      file: { url }
+    }
+  } = data;
+  const activeLinkStyle = { fontWeight: 400 };
 
   const links = langs.map(lang =>
     <Box
@@ -34,13 +41,24 @@ export default ({ data, langs }) => {
 
   return (
     <header>
-      <LangList>
-        {links}
-      </LangList>
-      <Title>{title}</Title>
-      <SubTitle>{subtitle}</SubTitle>
-      <Navbar items={navbar} />
-      <NavbarDesktop items={navbar} />
+      <Box
+        sx={{
+          maxWidth: '90%',
+          mx: 'auto'
+        }}
+      >
+        <LangList>
+          {links}
+        </LangList>
+        <Title>{title}</Title>
+        <SubTitle>{subtitle}</SubTitle>
+        <Navbar items={navbar} />
+        <NavbarDesktop items={navbar} />
+      </Box>
+      <Hero
+        src={url}
+        alt={description}
+      />
     </header>
   );
 };
