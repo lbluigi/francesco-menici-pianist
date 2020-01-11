@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby'
-import { Box } from 'rebass'
+import { Box, Heading } from 'rebass'
 import LangList from '../components/header/LangList'
-import Title from '../components/header/Title'
-import SubTitle from '../components/header/SubTitle'
 import Navbar from '../components/header/Navbar'
 import NavbarDesktop from '../components/header/NavbarDesktop';
 import Hero from '../components/header/Hero';
@@ -50,8 +48,22 @@ export default ({ data, langs }) => {
         <LangList>
           {links}
         </LangList>
-        <Title>{title}</Title>
-        <SubTitle>{subtitle}</SubTitle>
+        <Heading
+          as="h1"
+          fontSize={[ 26, 36 ]}
+          textAlign="center"
+          marginTop={[ 30, 0 ]}
+        >
+          {title}
+        </Heading>
+        <Heading
+          as="h2"
+          fontSize={[14, 18]}
+          textAlign="center"
+          marginBottom="50px"
+        >
+          {subtitle}
+        </Heading>
         <Navbar items={navbar} />
         <NavbarDesktop items={navbar} />
       </Box>

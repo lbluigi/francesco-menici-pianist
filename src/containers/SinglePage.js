@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider } from 'emotion-theming'
 import { Box } from 'rebass';
 import Header from './Header';
+import Section from './Section';
 import theme from '../data/theme'
 
 export default ({ data, location }) => {
@@ -33,7 +34,8 @@ export default ({ data, location }) => {
     }
 
     h1,
-    h2 {
+    h2,
+    h3 {
       text-transform: uppercase;
     }
   `;
@@ -51,6 +53,10 @@ export default ({ data, location }) => {
         fontWeight="body"
       >
         <Header data={contentfulHeader} langs={langsMenu} />
+        <Section
+          type="section"
+          title="music"
+        />
       </Box>
     </ThemeProvider>
   )
