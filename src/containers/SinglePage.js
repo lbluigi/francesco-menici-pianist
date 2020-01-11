@@ -17,7 +17,10 @@ export default ({ data, location }) => {
           defaultLangKey
         }
       }
-    }
+    },
+    contentfulAudio: {
+      title: audioTitle,
+    },
   } = data;
 
   const GlobalStyle = createGlobalStyle`
@@ -55,7 +58,7 @@ export default ({ data, location }) => {
         <Header data={contentfulHeader} langs={langsMenu} />
         <Section
           type="section"
-          title="music"
+          title={audioTitle}
         />
       </Box>
     </ThemeProvider>

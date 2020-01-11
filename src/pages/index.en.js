@@ -48,5 +48,16 @@ export const query = graphql`
         }
       }
     }
+    contentfulAudio(node_locale: {eq: "en-US"}) {
+      title
+      audio {
+        id
+        title
+        file {
+          url
+          fileName
+        }
+      }
+    }
   }
 `;

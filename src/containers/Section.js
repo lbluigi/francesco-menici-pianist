@@ -1,12 +1,14 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
 
-export default ({ data, type, title, backgroundColor, children }) => {
+export default ({ type, title, backgroundColor, children }) => {
   return (
     <Box
       as={type}
       backgroundColor={backgroundColor}
       padding="30px 0"
+      width="90%"
+      margin="0 auto"
     >
       <Heading
         as="h3"
