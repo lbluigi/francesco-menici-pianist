@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Link } from 'rebass';
+import PropTypes from 'prop-types';
 
-export default ({ items, desktop }) => {
+const NavbarItems = ({ items, desktop }) => {
   return items.map(item => (
     <Box
       key={item}
@@ -9,7 +10,7 @@ export default ({ items, desktop }) => {
       sx={{
         width: '100%',
         '@media screen and (min-width: 40em)': {
-          width: 'auto'
+          width: 'auto',
         },
         '&:after': desktop && {
           content: '""',
@@ -24,8 +25,8 @@ export default ({ items, desktop }) => {
           '&:after': {
             width: '100%',
             marginLeft: 0,
-          }
-        }
+          },
+        },
       }}
     >
       <Link
@@ -57,3 +58,10 @@ export default ({ items, desktop }) => {
     </Box>
   ));
 };
+
+NavbarItems.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  desktop: PropTypes.bool.isRequired,
+};
+
+export default NavbarItems;

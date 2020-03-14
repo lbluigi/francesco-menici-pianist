@@ -1,7 +1,8 @@
 import React from 'react';
 import { Image } from 'rebass';
+import PropTypes from 'prop-types';
 
-export default ({ src, alt }) => (
+const Hero = ({ src, alt }) => (
   <Image
     src={src}
     alt={alt}
@@ -27,3 +28,10 @@ export default ({ src, alt }) => (
     }}
   />
 );
+
+Hero.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};
+
+export default Hero;

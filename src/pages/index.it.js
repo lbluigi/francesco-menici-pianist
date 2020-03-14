@@ -1,26 +1,23 @@
-import React from 'react'
+import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import SinglePage from '../containers/SinglePage';
 
-export default ({ data, location }) => {
-  const { contentfulMetaContent: { title, description } } = data;
+const It = ({ data, location }) => {
+  const {
+    contentfulMetaContent: { title, description },
+  } = data;
 
   return (
     <>
       <Helmet>
         <title>{title}</title>
-        <meta
-          name="description"
-          content={description}
-        />
+        <meta name="description" content={description} />
       </Helmet>
-      <SinglePage
-        data={data}
-        location={location}
-      />
+      <SinglePage data={data} location={location} />
     </>
-  )
+  );
 };
 
 export const query = graphql`
@@ -33,7 +30,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulMetaContent(node_locale: {eq: "it"}) {
+    contentfulMetaContent(node_locale: { eq: "it" }) {
       title
       description
     }
@@ -48,7 +45,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulAudio(node_locale: {eq: "it"}) {
+    contentfulAudio(node_locale: { eq: "it" }) {
       title
       audio {
         id
@@ -61,3 +58,12 @@ export const query = graphql`
     }
   }
 `;
+
+It.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.object.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  location: PropTypes.object.isRequired,
+};
+
+export default It;

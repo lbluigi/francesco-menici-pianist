@@ -1,7 +1,8 @@
 import React from 'react';
-import { Flex } from 'rebass'
+import { Flex } from 'rebass';
+import PropTypes from 'prop-types';
 
-export default ({ children }) => (
+const LangList = ({ children }) => (
   <Flex
     as="ul"
     variant="langList"
@@ -13,12 +14,21 @@ export default ({ children }) => (
       '@media screen and (min-width: 40em)': {
         justifyContent: 'flex-end',
       },
-      'a': {
+      a: {
         textDecoration: 'none',
-        color: 'black'
-      }
+        color: 'black',
+      },
     }}
   >
     {children}
   </Flex>
-)
+);
+
+LangList.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+export default LangList;

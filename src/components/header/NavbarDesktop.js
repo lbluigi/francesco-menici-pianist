@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { Box } from 'rebass';
+import PropTypes from 'prop-types';
 import NavbarItems from './NavbarItems';
 
-export default ({ items }) => {
+const NavbarDesktop = ({ items }) => {
   return (
     <Box
       key="navbarDesktop"
@@ -22,5 +23,11 @@ export default ({ items }) => {
     >
       <NavbarItems items={items} desktop />
     </Box>
-  )
+  );
 };
+
+NavbarDesktop.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+export default NavbarDesktop;

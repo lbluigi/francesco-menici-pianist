@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql, navigate, withPrefix } from 'gatsby';
+import PropTypes from 'prop-types';
 
-export default ({ data }) => {
+const App = ({ data }) => {
   if (typeof window !== 'undefined') {
     const { defaultLangKey } = data.site.siteMetadata.languages;
     const homeUrl = withPrefix(`/${defaultLangKey}/`);
@@ -23,3 +24,17 @@ export const data = graphql`
     }
   }
 `;
+
+App.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        languages: PropTypes.shape({
+          defaultLangKey: PropTypes.string.isRequired,
+        }),
+      }),
+    }),
+  }).isRequired,
+};
+
+export default App;

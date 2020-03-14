@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
+import PropTypes from 'prop-types';
 
-export default ({ type, title, backgroundColor, children }) => {
+const Section = ({ type, title, backgroundColor, children }) => {
   return (
     <Box
       as={type}
@@ -33,12 +34,28 @@ export default ({ type, title, backgroundColor, children }) => {
             height: '1px',
             backgroundColor: 'black',
             marginLeft: '10px',
-          }
+          },
         }}
       >
         {title}
       </Heading>
       {children}
     </Box>
-  )
+  );
 };
+
+Section.defaultProps = {
+  backgroundColor: '#fff',
+};
+
+Section.propTypes = {
+  type: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+export default Section;

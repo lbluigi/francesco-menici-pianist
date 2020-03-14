@@ -1,8 +1,8 @@
 export default {
   breakpoints: ['27em'],
   fonts: {
-    body: '\'Chivo\', sans-serif',
-    heading: '\'Raleway\', sans-serif',
+    body: "'Chivo', sans-serif",
+    heading: "'Raleway', sans-serif",
   },
   fontWeights: {
     body: 300,
@@ -16,4 +16,4 @@ export default {
     primary: '#4DB6AC',
     secondary: '#1a1a1a',
   },
-}
+};

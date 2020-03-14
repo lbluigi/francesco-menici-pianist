@@ -1,47 +1,49 @@
-import React from 'react'
+import React from 'react';
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
-import { createGlobalStyle } from 'styled-components';
-import { ThemeProvider } from 'emotion-theming'
+import { Global, css } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
 import { Box } from 'rebass';
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Section from './Section';
-import theme from '../data/theme'
+import theme from '../data/theme';
 
-export default ({ data, location }) => {
+const SinglePage = ({ data, location }) => {
   const {
     contentfulHeader,
     site: {
       siteMetadata: {
-        languages: {
-          langs,
-          defaultLangKey
-        }
-      }
+        languages: { langs, defaultLangKey },
+      },
     },
-    contentfulAudio: {
-      title: audioTitle,
-    },
+    contentfulAudio: { title: audioTitle },
   } = data;
 
-  const GlobalStyle = createGlobalStyle`
-    html {
-      box-sizing: border-box;
-    }
+  const GlobalStyle = () => (
+    <Global
+      styles={css`
+        html {
+          box-sizing: border-box;
+        }
 
-    *, *:before, *:after {
-      box-sizing: inherit;
-    }
+        *,
+        *:before,
+        *:after {
+          box-sizing: inherit;
+        }
 
-    body {
-      margin: 0;
-    }
+        body {
+          margin: 0;
+        }
 
-    h1,
-    h2,
-    h3 {
-      text-transform: uppercase;
-    }
-  `;
+        h1,
+        h2,
+        h3 {
+          text-transform: uppercase;
+        }
+      `}
+    />
+  );
 
   const url = location.pathname;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
@@ -51,16 +53,21 @@ export default ({ data, location }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Box
-        fontFamily="body"
-        fontWeight="body"
-      >
+      <Box fontFamily="body" fontWeight="body">
         <Header data={contentfulHeader} langs={langsMenu} />
-        <Section
-          type="section"
-          title={audioTitle}
-        />
+        <Section type="section" title={audioTitle}>
+          Music
+        </Section>
       </Box>
     </ThemeProvider>
-  )
+  );
 };
+
+SinglePage.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.object.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  location: PropTypes.object.isRequired,
+};
+
+export default SinglePage;
