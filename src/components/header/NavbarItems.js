@@ -8,10 +8,7 @@ const NavbarItems = ({ items, desktop }) => {
       key={item}
       as="li"
       sx={{
-        width: '100%',
-        '@media screen and (min-width: 40em)': {
-          width: 'auto',
-        },
+        width: ['100%', 'auto'],
         '&:after': desktop && {
           content: '""',
           display: 'block',
@@ -31,25 +28,17 @@ const NavbarItems = ({ items, desktop }) => {
     >
       <Link
         href={`#${item}`}
-        variant="navLink"
         sx={{
           display: 'flex',
           justifyContent: 'center',
           textDecoration: 'none',
           textTransform: 'uppercase',
-          padding: '15px 0',
+          padding: ['15px 0', '20px 0'],
           color: 'black',
           backgroundColor: 'white',
           '&:hover': {
-            color: 'white',
-            backgroundColor: 'primary',
-          },
-          '@media screen and (min-width: 40em)': {
-            padding: '20px 0',
-            '&:hover': {
-              color: 'black',
-              backgroundColor: 'white',
-            },
+            color: ['white', 'black'],
+            backgroundColor: ['primary', 'white'],
           },
         }}
       >
@@ -57,6 +46,10 @@ const NavbarItems = ({ items, desktop }) => {
       </Link>
     </Box>
   ));
+};
+
+NavbarItems.defaultProps = {
+  desktop: false,
 };
 
 NavbarItems.propTypes = {

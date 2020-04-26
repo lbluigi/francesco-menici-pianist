@@ -17,10 +17,7 @@ const SinglePage = ({ data, location }) => {
         languages: { langs, defaultLangKey },
       },
     },
-    contentfulAudio: {
-      title: audioSectionTitle,
-      audio: audioList,
-    },
+    contentfulAudio: { title: audioSectionTitle, audio: audioList },
   } = data;
 
   const GlobalStyle = () => (

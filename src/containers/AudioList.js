@@ -1,22 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from 'rebass';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 const AudioList = ({ audioList }) => {
-  // console.log(audioList);
-  // return <p>Audio list</p>;
-  console.log(audioList)
-  return audioList.map(audio => (
-    <>
-      <p>{audio.title}</p>
-      <AudioPlayer
-        key={audio.id}
-        src={audio.file.url}
-        onPlay={e => console.log("onPlay")}
-      />
-    </>
-  ))
+  return (
+    <Box
+      display="flex"
+      flexDirection={['column', 'column', 'row']}
+      flexWrap="wrap"
+      justifyContent="space-between"
+    >
+      {audioList.map(audio => (
+        <Box
+          key={audio.id}
+          marginBottom="15px"
+          width={['100%', '100%', '49%']}
+          sx={{
+            '.rhap_container': {
+              backgroundColor: 'secondary',
+              padding: '15px',
+            },
+            '.rhap_progress-indicator, .rhap_progress-filled, .rhap_volume-indicator': {
+              backgroundColor: 'primary',
+            },
+            '.rhap_download-progress': {
+              backgroundColor: '#4d4d4d',
+            },
+            p: {
+              margin: 0,
+            },
+            '*': {
+              color: 'white',
+            },
+          }}
+        >
+          <AudioPlayer
+            as={AudioPlayer}
+            showJumpControls={false}
+            showSkipControls={false}
+            customAdditionalControls={[]}
+            layout="horizontal"
+            header={<p>{audio.title}</p>}
+            src={audio.file.url}
+          />
+        </Box>
+      ))}
+    </Box>
+  );
 };
 
 AudioList.propTypes = {

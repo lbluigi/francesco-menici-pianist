@@ -28,7 +28,7 @@ const Header = ({ data, langs }) => {
         marginLeft: 10,
       }}
     >
-      <Link to={lang.link} activeStyle={activeLinkStyle} variant="langLink">
+      <Link to={lang.link} activeStyle={activeLinkStyle}>
         {lang.langKey === 'en-US' ? 'en' : lang.langKey}
       </Link>
     </Box>

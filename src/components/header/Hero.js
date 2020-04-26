@@ -9,22 +9,9 @@ const Hero = ({ src, alt }) => (
     sx={{
       objectFit: 'cover',
       objectPosition: 'center',
-      marginTop: '20px',
-      height: '200px',
+      marginTop: ['20px', '50px'],
+      height: ['200px', '350px', '450px', '550px', '650px'],
       width: '100%',
-      '@media screen and (min-width: 576px)': {
-        height: '350px',
-        marginTop: '50px',
-      },
-      '@media screen and (min-width: 768px)': {
-        height: '450px',
-      },
-      '@media screen and (min-width: 992px)': {
-        height: '550px',
-      },
-      '@media screen and (min-width: 1125px)': {
-        height: '650px',
-      },
     }}
   />
 );
