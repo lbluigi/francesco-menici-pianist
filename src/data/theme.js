@@ -1,5 +1,5 @@
 export default {
-  breakpoints: ['27em'],
+  breakpoints: ['576px', '768px', '992px', '1125px'],
   fonts: {
     body: "'Chivo', sans-serif",
     heading: "'Raleway', sans-serif",

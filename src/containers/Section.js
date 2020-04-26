@@ -8,7 +8,7 @@ const Section = ({ type, title, backgroundColor, children }) => {
       as={type}
       backgroundColor={backgroundColor}
       padding="30px 0"
-      width="90%"
+      width={['90%', '90%', '90%', '940px']}
       margin="0 auto"
     >
       <Heading

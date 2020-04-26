@@ -6,6 +6,7 @@ import { Box } from 'rebass';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Section from './Section';
+import AudioList from './AudioList';
 import theme from '../data/theme';
 
 const SinglePage = ({ data, location }) => {
@@ -16,7 +17,7 @@ const SinglePage = ({ data, location }) => {
         languages: { langs, defaultLangKey },
       },
     },
-    contentfulAudio: { title: audioTitle },
+    contentfulAudio: { title: audioSectionTitle, audio: audioList },
   } = data;
 
   const GlobalStyle = () => (
@@ -55,8 +56,8 @@ const SinglePage = ({ data, location }) => {
       <GlobalStyle />
       <Box fontFamily="body" fontWeight="body">
         <Header data={contentfulHeader} langs={langsMenu} />
-        <Section type="section" title={audioTitle}>
-          Music
+        <Section type="section" title={audioSectionTitle}>
+          <AudioList audioList={audioList} />
         </Section>
       </Box>
     </ThemeProvider>

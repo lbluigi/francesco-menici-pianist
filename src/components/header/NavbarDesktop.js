@@ -8,17 +8,13 @@ const NavbarDesktop = ({ items }) => {
     <Box
       key="navbarDesktop"
       as="ul"
-      variant="navbarDesktop"
-      display="flex"
+      display={['none', 'flex']}
       justifyContent="space-around"
       sx={{
-        maxWidth: '90%',
+        maxWidth: '940px',
         mx: 'auto',
         listStyleType: 'none',
         padding: 0,
-        '@media screen and (max-width: 39.999em)': {
-          display: 'none',
-        },
       }}
     >
       <NavbarItems items={items} desktop />

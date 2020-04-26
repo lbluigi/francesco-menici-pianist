@@ -14,8 +14,8 @@ const Navbar = ({ items }) => {
   return (
     <>
       <Box
-        variant="menuBtn"
         fontWeight="semibold"
+        display={['block', 'none']}
         sx={{
           textAlign: 'center',
           textTransform: 'uppercase',
@@ -23,9 +23,6 @@ const Navbar = ({ items }) => {
           cursor: 'pointer',
           padding: '5px 0',
           fontSize: '0.85em',
-          '@media screen and (min-width: 40em)': {
-            display: 'none',
-          },
         }}
         onClick={toggleNavbar}
       >
@@ -41,10 +38,11 @@ const Navbar = ({ items }) => {
           <Box
             key="navbar"
             as="ul"
-            variant="navbar"
+            display={['flex', 'none']}
             sx={{
               listStyleType: 'none',
               padding: 0,
+              flexDirection: 'column',
               '&.navbar-enter': {
                 opacity: 0,
                 height: 0,
@@ -62,9 +60,6 @@ const Navbar = ({ items }) => {
               '&.navbar-leave-active': {
                 opacity: 0,
                 height: 0,
-              },
-              '@media screen and (min-width: 40em)': {
-                display: 'none',
               },
             }}
           >

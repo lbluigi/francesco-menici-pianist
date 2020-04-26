@@ -5,15 +5,11 @@ import PropTypes from 'prop-types';
 const LangList = ({ children }) => (
   <Flex
     as="ul"
-    variant="langList"
     sx={{
       listStyleType: 'none',
       padding: '20px 0',
       textTransform: 'uppercase',
-      justifyContent: 'center',
-      '@media screen and (min-width: 40em)': {
-        justifyContent: 'flex-end',
-      },
+      justifyContent: ['center', 'flex-end'],
       a: {
         textDecoration: 'none',
         color: 'black',
