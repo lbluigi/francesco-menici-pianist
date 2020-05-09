@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from 'rebass';
+import { Box, Flex } from 'theme-ui';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 const AudioList = ({ audioList }) => {
   return (
-    <Box
-      display="flex"
-      flexDirection={['column', 'column', 'row']}
-      flexWrap="wrap"
-      justifyContent="space-between"
+    <Flex
+      sx={{
+        flexDirection: ['column', 'column', 'row'],
+        flexWrap: 'wrap',
+        justifyContent: 'space-between'
+      }}
     >
       {audioList.map(audio => (
         <Box
           key={audio.id}
           marginBottom="15px"
-          width={['100%', '100%', '49%']}
           sx={{
+            width: ['100%', '100%', '49%'],
             '.rhap_container': {
               backgroundColor: 'secondary',
               padding: '15px',
@@ -32,7 +33,7 @@ const AudioList = ({ audioList }) => {
               margin: 0,
             },
             '*': {
-              color: 'white',
+              color: 'background',
             },
           }}
         >
@@ -47,7 +48,7 @@ const AudioList = ({ audioList }) => {
           />
         </Box>
       ))}
-    </Box>
+    </Flex>
   );
 };
 

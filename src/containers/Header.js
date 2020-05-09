@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Box, Heading } from 'rebass';
+import { Box, Heading } from 'theme-ui';
 import PropTypes from 'prop-types';
 import LangList from '../components/header/LangList';
 import Navbar from '../components/header/Navbar';
@@ -21,11 +21,13 @@ const Header = ({ data, langs }) => {
 
   const links = langs.map(lang => (
     <Box
-      as="li"
       key={lang.langKey}
-      selected={lang.selected}
+      as="li"
+      marginLeft="10px"
       sx={{
-        marginLeft: 10,
+        '&:first-of-type': {
+          marginLeft: 0,
+        }
       }}
     >
       <Link to={lang.link} activeStyle={activeLinkStyle}>
@@ -37,25 +39,31 @@ const Header = ({ data, langs }) => {
   return (
     <header>
       <Box
+        mx="auto"
         sx={{
           maxWidth: '90%',
-          mx: 'auto',
         }}
       >
         <LangList>{links}</LangList>
-        <Heading
+        <Heading 
           as="h1"
-          fontSize={[26, 36]}
-          textAlign="center"
-          marginTop={[30, 0]}
+          sx={{
+            fontSize: [26, 36],
+            textAlign: 'center',
+            marginTop: [30, 0],
+            textTransform: 'uppercase',
+          }}
         >
           {title}
         </Heading>
         <Heading
           as="h2"
-          fontSize={[14, 18]}
-          textAlign="center"
-          marginBottom="50px"
+          sx={{
+            fontSize: [14, 18],
+            textAlign: "center",
+            marginBottom: "50px",
+            textTransform: 'uppercase',
+          }}
         >
           {subtitle}
         </Heading>

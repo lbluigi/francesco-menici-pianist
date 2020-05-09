@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'rebass';
+import { Box } from 'theme-ui';
 import PropTypes from 'prop-types';
 import NavbarItems from './NavbarItems';
 
@@ -8,13 +8,13 @@ const NavbarDesktop = ({ items }) => {
     <Box
       key="navbarDesktop"
       as="ul"
-      display={['none', 'flex']}
-      justifyContent="space-around"
+      mx="auto"
+      padding="0"
       sx={{
+        display: ['none', 'flex'],
+        justifyContent: [null, 'space-around'],
         maxWidth: '940px',
-        mx: 'auto',
         listStyleType: 'none',
-        padding: 0,
       }}
     >
       <NavbarItems items={items} desktop />

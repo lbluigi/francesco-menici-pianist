@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading } from 'rebass';
+import { Box, Heading } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 const Section = ({ type, title, backgroundColor, children }) => {
@@ -8,23 +8,26 @@ const Section = ({ type, title, backgroundColor, children }) => {
       as={type}
       backgroundColor={backgroundColor}
       padding="30px 0"
-      width={['90%', '90%', '90%', '940px']}
       margin="0 auto"
+      sx={{
+        width: ['90%', '90%', '90%', '940px']
+      }}
     >
       <Heading
         as="h3"
-        fontSize="25px"
         padding="45px 0"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
         sx={{
+          fontSize: "25px",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textTransform: 'uppercase',
           '&:before': {
             content: '""',
             display: 'inline-block',
             width: '10px',
             height: '1px',
-            backgroundColor: 'black',
+            backgroundColor: 'text',
             marginRight: '10px',
           },
           '&:after': {
@@ -32,7 +35,7 @@ const Section = ({ type, title, backgroundColor, children }) => {
             display: 'inline-block',
             width: '10px',
             height: '1px',
-            backgroundColor: 'black',
+            backgroundColor: 'text',
             marginLeft: '10px',
           },
         }}
@@ -45,7 +48,7 @@ const Section = ({ type, title, backgroundColor, children }) => {
 };
 
 Section.defaultProps = {
-  backgroundColor: '#fff',
+  backgroundColor: 'background',
 };
 
 Section.propTypes = {

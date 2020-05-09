@@ -60,9 +60,7 @@ export const query = graphql`
 `;
 
 It.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
   location: PropTypes.object.isRequired,
 };
 
