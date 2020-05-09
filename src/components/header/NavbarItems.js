@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Link } from 'rebass';
+import { Box, Link } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 const NavbarItems = ({ items, desktop }) => {
@@ -34,11 +34,11 @@ const NavbarItems = ({ items, desktop }) => {
           textDecoration: 'none',
           textTransform: 'uppercase',
           padding: ['15px 0', '20px 0'],
-          color: 'black',
-          backgroundColor: 'white',
+          color: 'text',
+          backgroundColor: 'background',
           '&:hover': {
-            color: ['white', 'black'],
-            backgroundColor: ['primary', 'white'],
+            color: ['background', 'text'],
+            backgroundColor: ['primary', 'background'],
           },
         }}
       >

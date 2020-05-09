@@ -1,18 +1,18 @@
 import React from 'react';
-import { Flex } from 'rebass';
+import { Flex } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 const LangList = ({ children }) => (
   <Flex
     as="ul"
+    padding="20px 0"
     sx={{
       listStyleType: 'none',
-      padding: '20px 0',
       textTransform: 'uppercase',
       justifyContent: ['center', 'flex-end'],
       a: {
         textDecoration: 'none',
-        color: 'black',
+        color: 'text',
       },
     }}
   >

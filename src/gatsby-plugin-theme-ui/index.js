@@ -11,9 +11,15 @@ export default {
     bold: 700,
   },
   colors: {
-    black: '#000',
-    white: '#fff',
+    text: '#000',
+    background: '#fff',
     primary: '#4DB6AC',
     secondary: '#1a1a1a',
+  },
+  styles: {
+    root: {
+      fontFamily: 'body',
+      fontWeight: 'body',
+    },
   },
 };

@@ -13,18 +13,7 @@ module.exports = {
     languages,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-eslint',
-      options: {
-        test: /\.js$|\.jsx$/,
-        exclude: /(node_modules|.cache|public)/,
-        stages: ['develop'],
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
-      },
-    },
+    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-plugin-i18n',
       options: {
