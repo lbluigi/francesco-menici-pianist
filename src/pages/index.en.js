@@ -56,6 +56,18 @@ export const query = graphql`
         }
       }
     }
+    contentfulProjects(node_locale: { eq: "en-US" }) {
+      title
+      projects {
+        id
+        description
+        title
+        file {
+          url
+          fileName
+        }
+      }
+    }
   }
 `;
 
